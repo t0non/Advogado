@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 25 25% 45%; /* Bronze Minimalista */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 25 25% 45%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tighter text-primary;
+  }
+}
+
+@layer components {
+  /* Margens padrão do site */
+  .page-margins {
+    @apply px-8 md:px-24 lg:px-48;
+  }
+
+  .content-container {
+    @apply max-w-screen-xl mx-auto;
+  }
+
+  .glass-btn-whatsapp {
+    @apply relative inline-flex items-center justify-center gap-4 px-12 h-20 
+           bg-gradient-to-br from-[#25D366]/20 to-[#128C7E]/10
+           backdrop-blur-2xl border border-white/20 
+           text-[#25D366] font-bold uppercase text-[11px] tracking-[0.3em]
+           transition-all duration-700 ease-premium overflow-hidden
+           rounded-full shadow-[0_20px_40px_-15px_rgba(37,211,102,0.2)]
+           hover:bg-[#25D366] hover:text-white hover:border-[#25D366] 
+           hover:shadow-[0_25px_50px_-12px_rgba(37,211,102,0.4)] 
+           hover:scale-[1.02] active:scale-95;
+  }
+
+  /* Efeito de Brilho Metálico (Shimmer) */
+  .glass-btn-whatsapp::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent;
+    transform: skewX(-20deg);
+    transition: transform 1.5s ease-in-out;
+    animation: shimmer 4s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    30% { transform: translateX(150%) skewX(-20deg); }
+    100% { transform: translateX(150%) skewX(-20deg); }
+  }
+
+  .glass-btn-whatsapp:hover::before {
+    animation: none;
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
+
+/* Premium Animations Custom */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#C5A880] via-[#8C6D4A] to-[#C5A880] animate-gradient;
+  background-size: 200% auto;
+}
+
+.accent-gradient {
+  @apply bg-primary hover:bg-accent transition-all duration-700 ease-premium;
+}
+
+.minimal-card {
+  @apply border border-border bg-white transition-all duration-700 ease-premium hover:border-accent/30;
+}
+
+/* Reveal Animation with Blur */
+@keyframes premium-reveal {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-premium-reveal {
+  animation: premium-reveal 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Background Pan Animation */
+@keyframes slow-pan {
+  0% { transform: scale(1.1) translateX(-1%); }
+  50% { transform: scale(1.15) translateX(1%); }
+  100% { transform: scale(1.1) translateX(-1%); }
+}
+
+.animate-slow-pan {
+  animation: slow-pan 25s ease-in-out infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient-x 6s ease infinite;
+}
