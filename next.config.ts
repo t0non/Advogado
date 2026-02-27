@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    // Qualidades permitidas para next/image (evita warnings futuros na v16)
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: 'https',

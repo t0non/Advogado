@@ -10,6 +10,10 @@ import {
 } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import drAntonioImg from "@/imagens/foto do profissional.png";
+import senhorCarteira from "@/imagens/senhorsegurandocarteira.png";
+import drAntonioImg2 from "@/imagens/foto do profissional 2.png";
+import logoDef from "@/imagens/Logo definitiva.png";
+import BHClockInline from "@/app/components/BHClockInline";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -29,196 +33,232 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen selection:bg-[#25D366] selection:text-white bg-white font-body">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden py-16 md:py-20 page-margins bg-white">
-        <div className="content-container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 xl:gap-28 items-start">
-          <div className="order-1 text-center lg:text-left lg:col-span-7">
-            <div className="text-accent font-bold uppercase tracking-[0.4em] text-[10px] mb-8 animate-premium-reveal opacity-0 fill-mode-forwards">
-              Especialistas em Direito Previdenciário
+      <section className="relative flex items-center overflow-hidden page-margins bg-white pt-24 md:pt-28 lg:pt-0 lg:min-h-screen">
+        <div className="absolute inset-x-0 top-0 h-20 md:h-24 bg-[#4f151c] z-0 pointer-events-none flex items-center justify-center shadow-lg">
+          <div className="relative z-50 flex items-center justify-center pointer-events-none w-full h-full">
+            <Image src={logoDef} alt="Rodrigues Advocacia" className="w-40 md:w-52 h-auto object-contain" priority />
+          </div>
+        </div>
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full lg:min-h-screen">
+          <div className="order-1 text-center lg:text-left self-center w-full max-w-xl lg:col-span-7">
+            <div className="text-gold font-bold uppercase tracking-widest text-xs md:text-[11px] mb-6 animate-premium-reveal opacity-0 fill-mode-forwards">
+              Advogados especialistas em INSS
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold mb-6 leading-[1.1] tracking-tighter text-black uppercase animate-premium-reveal animate-delay-200 opacity-0 fill-mode-forwards max-w-[760px]">
-              <span className="hidden lg:block">
-                <span className="block">SEU BENEFÍCIO</span>
-                <span className="block">FOI <span className="gradient-text">NEGADO</span></span>
-                <span className="block">PELO INSS</span>
-              </span>
-              <span className="lg:hidden">
-                Seu benefício foi <br/> <span className="gradient-text">NEGADO</span> pelo INSS?
-              </span>
+            <h1 className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight text-black uppercase animate-premium-reveal animate-delay-200 opacity-0 fill-mode-forwards font-headline">
+              O INSS cortou ou negou seu pagamento?
             </h1>
-            <p className="text-gray-800 max-w-[700px] mx-auto lg:mx-0 mb-8 font-medium text-lg md:text-xl leading-relaxed animate-premium-reveal animate-delay-300 opacity-0 fill-mode-forwards">
-              Você pode ter direito e está perdendo dinheiro todos os meses. <br className="hidden md:block" />
-              <span className="font-bold text-black underline decoration-accent/50 underline-offset-8">Precisa agir rápido:</span> recorra antes que o prazo acabe.
+            <p className="text-gray-800 mx-auto lg:mx-0 mb-7 font-medium text-base md:text-lg leading-relaxed animate-premium-reveal animate-delay-300 opacity-0 fill-mode-forwards">
+              Você trabalhou, pagou tudo certinho e agora estão segurando o seu dinheiro. Não deixe isso para lá. <span className="font-bold text-black">Fale com a gente antes que seja tarde.</span>
             </p>
             
             <div className="flex flex-col gap-5 md:gap-6 items-center lg:items-start animate-premium-reveal animate-delay-500 opacity-0 fill-mode-forwards">
               <Link href={whatsappUrl} target="_blank">
-                <button className="glass-btn-whatsapp group">
+                <button className="glass-btn-whatsapp group inline-flex">
                   <WhatsAppIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-500" />
-                  Falar com o advogado agora
+                  Falar com advogado agora
                 </button>
               </Link>
-              <p className="text-gray-700 text-[10px] uppercase tracking-[0.3em] font-bold">A resposta é rápida e sem compromisso</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 lg:mt-16 max-w-4xl mx-auto lg:mx-0 animate-premium-reveal animate-delay-700 opacity-0 fill-mode-forwards border-t border-black/10 pt-12">
+            {/* Imagem dos advogados logo abaixo do botão (somente mobile) */}
+            <div className="block lg:hidden mt-8">
+              <div className="relative w-full max-w-md mx-auto h-80 sm:h-96 overflow-visible">
+                <Image 
+                  src={drAntonioImg}
+                  alt="Dra. Daniela & Dr. Antônio Rodrigues"
+                  fill
+                  className="object-contain object-center"
+                  priority
+                />
+                <div className="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-b from-transparent to-white pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 lg:mt-16 max-w-4xl mx-auto lg:mx-0 animate-premium-reveal animate-delay-700 opacity-0 fill-mode-forwards border-t border-black/10 pt-8">
               {[
                 { icon: ShieldCheck, text: "Atendimento direto com advogados" },
                 { icon: CheckCircle2, text: "Mais de 30 anos de experiência" },
                 { icon: Zap, text: "Mais de 2.000 clientes atendidos" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-center lg:justify-start gap-3 text-black text-[10px] font-bold uppercase tracking-widest">
-                  <item.icon className="h-4 w-4 text-accent" />
-                  {item.text}
+                  <item.icon className="h-4 w-4 text-accent shrink-0" />
+                  <span className="text-left">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="order-2 lg:order-2 mt-12 lg:mt-0 flex lg:justify-end lg:col-span-4">
-            <div className="relative w-full max-w-[780px] mx-auto lg:mr-0 aspect-[4/5] overflow-hidden">
+          {/* Imagem lateral (somente desktop) */}
+          <div className="hidden lg:grid order-2 mt-0 lg:col-span-5 justify-items-end items-center">
+            <div className="relative w-full max-w-xl h-[70vh] lg:max-w-3xl lg:h-[92vh] overflow-visible justify-self-end self-center">
               <Image 
                 src={drAntonioImg}
                 alt="Dra. Daniela & Dr. Antônio Rodrigues"
                 fill
-                className="object-contain object-right-bottom"
+                className="object-contain object-center"
                 priority
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-white" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Conexão Emocional */}
-      <section className="py-24 md:py-32 bg-white border-y border-border page-margins">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center space-y-12">
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tighter leading-tight text-black uppercase">
-              Você trabalhou a vida inteira. Pagou INSS. <br/> 
-              <span className="inline-block bg-[#8C6D4A] text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-sm">
+      {/* Seção de Agitação (Dor do Cliente) */}
+      <section className="py-12 md:py-16 bg-geo-subtle page-margins soft-transition-top">
+        <div className="w-full">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="section-title text-black">
+              Você trabalhou duro. Pagou o INSS. <br/> 
+              <span className="inline-block bg-[#8C6D4A] text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-[12px]">
                 Cumpriu sua parte.
               </span>
             </h2>
-            <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
-              Agora precisa receber o que é seu por direito. <span className="font-bold text-black italic text-xl">O INSS erra com frequência.</span> E quando erra, você pode e deve recorrer. Tentar sozinho é muito difícil.
+            <p className="section-paragraph text-gray-600 max-w-3xl mx-auto">
+              O INSS erra muito e quem sai perdendo é você. Tentar resolver isso sozinho no aplicativo ou nas agências dá dor de cabeça. <span className="font-bold text-black">Nós sabemos o caminho certo para liberar o seu dinheiro.</span>
             </p>
           </div>
         </div>
       </section>
 
       {/* Problemas que Resolvemos */}
-      <section id="beneficios" className="py-24 md:py-32 bg-[#fafafa] page-margins">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
-            <div className="space-y-12">
-              <div className="text-[11px] font-bold uppercase tracking-[0.5em] text-accent">Especialidades</div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-none uppercase">Podemos ajudar se você teve:</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
+      <section id="beneficios" className="section-y bg-[#fafafa] page-margins pt-10 md:pt-12">
+        <div className="w-full">
+          <div className="flex justify-center mb-8 md:mb-10">
+            <div className="faixa-premium" />
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-6 lg:gap-section items-center">
+            <div className="space-y-4 md:space-y-12">
+              <div className="section-kicker">Especialidades</div>
+              <h2 className="section-title">Como podemos te ajudar hoje:</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 md:gap-5 pt-2 md:pt-6">
                 {[
-                  "Auxílio-doença negado",
-                  "Invalidez negada",
-                  "Aposentadoria negada",
-                  "Benefício suspenso",
-                  "Pedido parado",
-                  "Valor menor"
+                  "Auxílio-doença cortado",
+                  "Te mandaram trabalhar, mas você está doente",
+                  "Aposentadoria que não sai",
+                  "Pararam de pagar de repente",
+                  "Pedido travado lá no INSS há meses",
+                  "Estão pagando um valor muito baixo"
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 p-6 bg-white border border-border group hover:border-[#25D366]/50 transition-all duration-700 rounded-2xl shadow-sm">
+                  <div key={idx} className="card-premium flex items-center gap-4 py-2">
                     <CheckCircle2 className="h-5 w-5 text-[#25D366]" />
-                    <span className="text-xs font-bold tracking-tight uppercase text-black">{item}</span>
+                    <span className="text-xs font-bold tracking-tight uppercase text-black leading-tight">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="pt-10">
+              <div className="pt-2 md:pt-10">
                 <Link href={whatsappUrl}>
                   <button className="glass-btn-whatsapp group w-full md:w-auto">
                     <WhatsAppIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    Quero uma análise gratuita
+                    Quero uma análise do meu caso
                   </button>
                 </Link>
               </div>
             </div>
-            <div className="relative aspect-square md:aspect-[4/5] overflow-hidden bg-white border border-border shadow-2xl rounded-[3rem]">
-              {PlaceHolderImages.find(img => img.id === "legal-documents") && (
-                <Image 
-                  src={PlaceHolderImages.find(img => img.id === "legal-documents")?.imageUrl || ""} 
-                  alt="Documentos Jurídicos" 
-                  fill 
-                  className="object-cover"
-                />
-              )}
+            <div className="relative w-full h-[52vh] md:h-[85vh] overflow-visible">
+              <Image
+                src={senhorCarteira}
+                alt="Imagem do senhor segurando a carteira"
+                fill
+                quality={90}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain object-center"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28%] md:h-[40%] bg-gradient-to-b from-white/10 via-white/85 to-[#fafafa]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Sobre os Sócios */}
-      <section id="sobre" className="py-24 md:py-32 bg-white page-margins overflow-hidden">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 lg:gap-32 items-center">
-            <div className="relative aspect-square md:aspect-[4/5] overflow-hidden group border border-border shadow-2xl order-2 md:order-1 rounded-[3rem]">
+      <section id="sobre" className="section-y bg-white page-margins overflow-hidden">
+        <div className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-28 items-center md:items-stretch">
+            <div className="relative aspect-square md:aspect-[4/5] mx-auto overflow-hidden group border border-border shadow-xl order-2 md:order-1 rounded-2xl bg-black">
               <Image 
-                src={drAntonioImg} 
+                src={drAntonioImg2} 
                 alt="Dra. Daniela & Dr. Antônio Rodrigues" 
                 fill 
-                className="object-cover transition-all duration-1000 group-hover:scale-105"
+                className="object-cover object-center scale-105"
               />
-              <div className="absolute bottom-0 left-0 w-full p-12 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white">
-                <p className="text-[11px] font-bold tracking-[0.3em] uppercase mb-3 text-accent">Sócios Fundadores</p>
-                <h3 className="text-3xl font-bold tracking-tighter uppercase">Dra. Daniela & Dr. Antônio</h3>
+              <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white rounded-b-2xl">
+                <p className="text-[11px] font-bold tracking-[0.3em] uppercase mb-2 text-accent">Sócios Fundadores</p>
+                <h3 className="text-xl md:text-2xl lg:text-2xl font-bold uppercase text-white">Dr. Antônio & Dra. Daniela</h3>
               </div>
             </div>
-            <div className="space-y-12 order-1 md:order-2">
-              <div className="text-[11px] font-bold uppercase tracking-[0.5em] text-accent">Autoridade</div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-none uppercase">30 anos de <br/> experiência.</h2>
-              <ul className="space-y-10">
+            <div className="space-y-8 md:space-y-8 order-1 md:order-2 md:h-full md:flex md:flex-col md:justify-between">
+              <div className="section-kicker">Autoridade</div>
+              <h2 className="section-title">Quem vai lutar pelo seu direito?</h2>
+              <ul className="space-y-6 md:space-y-8 md:flex-1">
                 {[
-                  { label: "Formação", val: "Especialistas pela UFMG" },
-                  { label: "Histórico", val: "Atuação em mais de 2.000 casos" },
-                  { label: "Diferencial", val: "Sem intermediários ou robôs" }
+                  { 
+                    label: "Formação", 
+                    val: (
+                      <>
+                        Estudamos nas <span className="bg-[#8C6D4A] text-white px-1 rounded">melhores faculdades</span> para defender você
+                      </>
+                    ) 
+                  },
+                  { 
+                    label: "Histórico", 
+                    val: (
+                      <>
+                        Já ajudamos <span className="bg-[#8C6D4A] text-white px-1 rounded">mais de 2.000 pessoas</span> a conseguir o que era delas
+                      </>
+                    ) 
+                  },
+                  { 
+                    label: "Diferencial", 
+                    val: (
+                      <>
+                        Aqui você fala com <span className="bg-[#8C6D4A] text-white px-1 rounded">gente de verdade</span>, não com robôs
+                      </>
+                    ) 
+                  }
                 ].map((item, i) => (
-                  <li key={i} className="border-b border-border pb-8 group">
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 group-hover:text-accent transition-colors">{item.label}</p>
-                    <p className="text-lg md:text-2xl font-bold uppercase tracking-tight text-black">{item.val}</p>
+                  <li key={i} className="border-b border-gray-300 py-5 md:py-6 lg:py-8 group last:border-b-0">
+                    <p className="text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-2 group-hover:text-accent transition-colors">{item.label}</p>
+                    <p className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-tight text-black">{item.val}</p>
                   </li>
                 ))}
               </ul>
-              <p className="text-black font-semibold italic text-lg">Seu caso é tratado com a seriedade que merece.</p>
+              <p className="text-black font-semibold italic text-base md:text-base lg:text-lg md:mt-auto">Seu caso é tratado com a seriedade que merece.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Seção de Urgência */}
-      <section className="py-24 md:py-48 bg-black text-white page-margins overflow-hidden relative">
-        <div className="container mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 mb-10 text-[11px] font-bold tracking-[0.5em] uppercase text-accent">
-            <Clock className="h-4 w-4 animate-pulse" /> Atenção ao Prazo Fatal
+      <section className="section-y bg-dark text-white page-margins overflow-hidden relative">
+        <div className="w-full relative z-10 text-center pb-16 md:pb-24">
+          <div className="mb-2 text-[12px] tracking-widest">
+            <BHClockInline />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-none uppercase text-white">
-            Muitos benefícios têm <span className="text-accent">prazo</span> para recorrer.
+          <div className="inline-flex items-center gap-2 mb-12 md:mb-16 text-[11px] font-bold tracking-[0.5em] uppercase text-white">
+            <Clock className="h-4 w-4 animate-pulse text-white" /> Atenção: o tempo está passando
+          </div>
+          <h2 className="section-title text-white mb-16">
+            Existe um <span className="text-gold">prazo</span> máximo para você requerer.
           </h2>
-          <p className="text-white text-lg md:text-xl mb-20 max-w-4xl mx-auto font-medium leading-relaxed">
-            Se você deixar o tempo passar, pode perder seu direito de forma definitiva. Não espere a situação piorar. Cada dia parado é dinheiro que não retorna ao seu bolso.
+          <p className="section-paragraph text-white mb-16 md:mb-20 max-w-4xl mx-auto">
+            Se você demorar, o INSS fica com o seu dinheiro para sempre e você perde o seu direito. Cada dia que passa é dinheiro que não entra no seu bolso.
           </p>
           <Link href={whatsappUrl}>
             <button className="glass-btn-whatsapp group">
               <WhatsAppIcon className="h-5 w-5 group-hover:rotate-12 transition-transform duration-500" />
-              Analisar meu prazo agora
+              Ver o meu caso agora (sem compromisso)
             </button>
           </Link>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.05] pointer-events-none">
-          <AlertCircle className="w-full h-full" strokeWidth={0.1} />
-        </div>
+        
       </section>
 
       {/* CTA Final */}
       <section id="contato" className="py-24 md:py-48 bg-accent text-white page-margins overflow-hidden relative">
-        <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-12 tracking-tighter leading-none uppercase text-white">
+        <div className="w-full text-center relative z-10">
+          <h2 className="section-title text-white mb-12">
             Não aceite a negativa <br className="hidden lg:block"/> sem lutar.
           </h2>
-          <p className="text-white text-lg md:text-xl mb-20 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="section-paragraph text-white mb-20 max-w-3xl mx-auto">
             Uma análise jurídica especializada pode mudar o seu futuro financeiro. Fale agora com os advogados.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 justify-center">
@@ -237,7 +277,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-black text-white py-24 border-t border-white/5 page-margins">
-        <div className="container mx-auto">
+        <div className="w-full">
           <div className="flex flex-col md:flex-row justify-between items-center gap-16">
             <div className="flex flex-col md:flex-row gap-12 md:gap-32 text-center md:text-left">
               <div className="space-y-4">
