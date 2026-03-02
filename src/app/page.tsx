@@ -28,7 +28,8 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === "hero-legal");
-  const whatsappUrl = "https://wa.me/553100000000";
+  // Mensagem codificada: "Olá, gostaria de agendar uma consulta sobre meu caso do INSS."
+  const whatsappUrl = "https://wa.me/5531988935159?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20sobre%20meu%20caso%20do%20INSS.";
 
   return (
     <div className="flex flex-col min-h-screen selection:bg-[#25D366] selection:text-white bg-white font-body">
@@ -45,17 +46,17 @@ export default function Home() {
               Advogados especialistas em INSS
             </div>
             <h1 className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight text-black uppercase animate-premium-reveal animate-delay-200 opacity-0 fill-mode-forwards font-headline">
-              O INSS cortou ou negou seu pagamento?
+              O INSS negou seu benefício?
             </h1>
             <p className="text-gray-800 mx-auto lg:mx-0 mb-7 font-medium text-base md:text-lg leading-relaxed animate-premium-reveal animate-delay-300 opacity-0 fill-mode-forwards">
-              Você trabalhou, pagou tudo certinho e agora estão segurando o seu dinheiro. Não deixe isso para lá. <span className="font-bold text-black">Fale com a gente antes que seja tarde.</span>
+              Você pagou o INSS a vida toda e agora que precisa, eles viraram as costas. Não deixe seu dinheiro lá. <span className="font-bold text-black">A gente resolve isso pra você.</span>
             </p>
             
             <div className="flex flex-col gap-5 md:gap-6 items-center lg:items-start animate-premium-reveal animate-delay-500 opacity-0 fill-mode-forwards">
               <Link href={whatsappUrl} target="_blank">
                 <button className="glass-btn-whatsapp group inline-flex">
                   <WhatsAppIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-500" />
-                  Falar com advogado agora
+                  Falar com advogado no WhatsApp
                 </button>
               </Link>
             </div>
@@ -98,6 +99,7 @@ export default function Home() {
                 className="object-contain object-center"
                 priority
               />
+              <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
@@ -108,14 +110,23 @@ export default function Home() {
         <div className="w-full">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="section-title text-black">
-              Você trabalhou duro. Pagou o INSS. <br/> 
+              Trabalhou a vida toda e o INSS negou? <br/> 
               <span className="inline-block bg-[#8C6D4A] text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-[12px]">
-                Cumpriu sua parte.
+                Isso não tá certo!
               </span>
             </h2>
             <p className="section-paragraph text-gray-600 max-w-3xl mx-auto">
-              O INSS erra muito e quem sai perdendo é você. Tentar resolver isso sozinho no aplicativo ou nas agências dá dor de cabeça. <span className="font-bold text-black">Nós sabemos o caminho certo para liberar o seu dinheiro.</span>
-            </p>
+                O governo erra muito e você fica no prejuízo. <br className="hidden md:block" />
+                Não tente brigar sozinho. <span className="font-bold text-black">Nós sabemos o caminho mais rápido para o dinheiro cair na sua conta.</span>
+              </p>
+            <div className="pt-4">
+              <Link href={whatsappUrl}>
+                <button className="glass-btn-whatsapp group w-full md:w-auto">
+                  <WhatsAppIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Quero ajuda agora
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -134,8 +145,8 @@ export default function Home() {
                 {[
                   "Auxílio-doença cortado",
                   "Te mandaram trabalhar, mas você está doente",
-                  "Aposentadoria que não sai",
-                  "Pararam de pagar de repente",
+                  "Aposentadoria negada ou atrasada",
+                  "Cortaram seu pagamento do nada",
                   "Pedido travado lá no INSS há meses",
                   "Estão pagando um valor muito baixo"
                 ].map((item, idx) => (
@@ -163,17 +174,17 @@ export default function Home() {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-contain object-center"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28%] md:h-[40%] bg-gradient-to-b from-white/10 via-white/85 to-[#fafafa]" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[50%] md:h-[70%] bg-gradient-to-b from-[#fafafa]/0 via-[#fafafa]/80 to-[#fafafa]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Sobre os Sócios */}
-      <section id="sobre" className="section-y bg-white page-margins overflow-hidden">
+      <section id="sobre" className="py-12 md:py-16 bg-white page-margins overflow-hidden">
         <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-28 items-center md:items-stretch">
-            <div className="relative aspect-square md:aspect-[4/5] mx-auto overflow-hidden group border border-border shadow-xl order-2 md:order-1 rounded-2xl bg-black">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center md:items-stretch">
+            <div className="relative aspect-[4/5] md:aspect-[4/5] max-w-[400px] md:max-w-[440px] lg:max-w-[460px] mx-auto overflow-hidden group border border-border shadow-xl order-2 md:order-1 rounded-2xl bg-black block w-full">
               <Image 
                 src={drAntonioImg2} 
                 alt="Dra. Daniela & Dr. Antônio Rodrigues" 
@@ -185,43 +196,43 @@ export default function Home() {
                 <h3 className="text-xl md:text-2xl lg:text-2xl font-bold uppercase text-white">Dr. Antônio & Dra. Daniela</h3>
               </div>
             </div>
-            <div className="space-y-8 md:space-y-8 order-1 md:order-2 md:h-full md:flex md:flex-col md:justify-between">
-              <div className="section-kicker">Autoridade</div>
-              <h2 className="section-title">Quem vai lutar pelo seu direito?</h2>
-              <ul className="space-y-6 md:space-y-8 md:flex-1">
+            <div className="space-y-6 md:space-y-6 order-1 md:order-2 md:h-full md:flex md:flex-col md:justify-center">
+              <div className="section-kicker text-accent">Autoridade</div>
+              <h2 className="section-title text-3xl md:text-4xl lg:text-4xl">Quem vai lutar pelo seu direito?</h2>
+              <ul className="space-y-4 md:space-y-6 md:flex-1">
                 {[
                   { 
-                    label: "Formação", 
+                    label: "Experiência", 
                     val: (
                       <>
-                        Estudamos nas <span className="bg-[#8C6D4A] text-white px-1 rounded">melhores faculdades</span> para defender você
+                        Sabemos como o INSS funciona e os <span className="bg-[#8C6D4A] text-white px-1 rounded">atalhos para vencer</span>
                       </>
                     ) 
                   },
                   { 
-                    label: "Histórico", 
+                    label: "Resultado", 
                     val: (
                       <>
-                        Já ajudamos <span className="bg-[#8C6D4A] text-white px-1 rounded">mais de 2.000 pessoas</span> a conseguir o que era delas
+                        Já ajudamos <span className="bg-[#8C6D4A] text-white px-1 rounded">mais de 2.000 pessoas</span> a recuperar o dinheiro delas
                       </>
                     ) 
                   },
                   { 
-                    label: "Diferencial", 
+                    label: "Atenção", 
                     val: (
                       <>
-                        Aqui você fala com <span className="bg-[#8C6D4A] text-white px-1 rounded">gente de verdade</span>, não com robôs
+                        Aqui você fala com <span className="bg-[#8C6D4A] text-white px-1 rounded">gente de verdade</span> no WhatsApp, não com robôs
                       </>
                     ) 
                   }
                 ].map((item, i) => (
-                  <li key={i} className="border-b border-gray-300 py-5 md:py-6 lg:py-8 group last:border-b-0">
-                    <p className="text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-2 group-hover:text-accent transition-colors">{item.label}</p>
-                    <p className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-tight text-black">{item.val}</p>
+                  <li key={i} className="border-b border-gray-300 py-3 md:py-4 lg:py-5 group last:border-b-0">
+                    <p className="text-[9px] md:text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-1 group-hover:text-accent transition-colors">{item.label}</p>
+                    <p className="text-base md:text-xl lg:text-2xl font-bold uppercase tracking-tight text-black">{item.val}</p>
                   </li>
                 ))}
               </ul>
-              <p className="text-black font-semibold italic text-base md:text-base lg:text-lg md:mt-auto">Seu caso é tratado com a seriedade que merece.</p>
+              <p className="text-black font-semibold italic text-sm md:text-base lg:text-base md:mt-auto">Seu caso é tratado com a seriedade que merece.</p>
             </div>
           </div>
         </div>
@@ -236,11 +247,11 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 mb-12 md:mb-16 text-[11px] font-bold tracking-[0.5em] uppercase text-white">
             <Clock className="h-4 w-4 animate-pulse text-white" /> Atenção: o tempo está passando
           </div>
-          <h2 className="section-title text-white mb-16">
-            Existe um <span className="text-gold">prazo</span> máximo para você requerer.
+          <h2 className="text-3xl md:text-5xl font-bold mb-16 tracking-tighter leading-none uppercase text-white">
+            Cuidado: você tem pouco <span className="text-gold">tempo</span> para recorrer.
           </h2>
-          <p className="section-paragraph text-white mb-16 md:mb-20 max-w-4xl mx-auto">
-            Se você demorar, o INSS fica com o seu dinheiro para sempre e você perde o seu direito. Cada dia que passa é dinheiro que não entra no seu bolso.
+          <p className="text-white text-lg md:text-xl mb-16 md:mb-20 max-w-4xl mx-auto font-medium leading-relaxed">
+            Se você demorar, perde o direito e o INSS fica com o seu dinheiro para sempre. Cada dia que passa é menos dinheiro no seu bolso.
           </p>
           <Link href={whatsappUrl}>
             <button className="glass-btn-whatsapp group">
@@ -253,13 +264,13 @@ export default function Home() {
       </section>
 
       {/* CTA Final */}
-      <section id="contato" className="py-24 md:py-48 bg-accent text-white page-margins overflow-hidden relative">
+      <section id="contato" className="w-full py-24 md:py-48 bg-accent text-white page-margins overflow-hidden relative">
         <div className="w-full text-center relative z-10">
           <h2 className="section-title text-white mb-12">
-            Não aceite a negativa <br className="hidden lg:block"/> sem lutar.
+            Não aceite o "NÃO" do INSS <br className="hidden lg:block"/> de cabeça baixa.
           </h2>
           <p className="section-paragraph text-white mb-20 max-w-3xl mx-auto">
-            Uma análise jurídica especializada pode mudar o seu futuro financeiro. Fale agora com os advogados.
+            Uma conversa rápida com nossos advogados pode colocar o seu benefício de volta nos trilhos. Conte seu problema para a gente agora.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 justify-center">
             <Link href={whatsappUrl} className="w-full md:w-auto">
@@ -275,18 +286,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Seção de Mapa */}
+      <section className="py-12 md:py-16 bg-offwhite page-margins">
+        <div className="w-full text-center space-y-8">
+          <h2 className="section-title text-black">Onde a gente fica</h2>
+          <p className="section-paragraph text-gray-600 max-w-2xl mx-auto">
+            Se preferir, venha tomar um café com a gente. É fácil de chegar.
+          </p>
+          <div className="w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-border relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.966467667236!2d-43.94165692505777!3d-19.91812408146615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e867300001%3A0x6a66666666666666!2sR.%20dos%20Carij%C3%B3s%2C%20424%20-%20Centro%2C%20Belo%20Horizonte%20-%20MG%2C%2030120-060!5e0!3m2!1spt-BR!2sbr!4v1709333333333!5m2!1spt-BR!2sbr" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div className="pt-4">
+            <Link href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Carij%C3%B3s+424+Centro+Belo+Horizonte" target="_blank">
+              <button className="glass-btn-whatsapp bg-black border-white/20 hover:bg-gray-900 group w-full md:w-auto">
+                Ver como chegar
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-black text-white py-24 border-t border-white/5 page-margins">
         <div className="w-full">
           <div className="flex flex-col md:flex-row justify-between items-center gap-16">
             <div className="flex flex-col md:flex-row gap-12 md:gap-32 text-center md:text-left">
               <div className="space-y-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">Endereço</p>
-                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">Belo Horizonte, MG</p>
+                <p className="section-kicker text-accent">Endereço</p>
+                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">
+                  Rua dos Carijós 424 <br/> 
+                  salas 1504/1508 <br/> 
+                  Centro Belo Horizonte
+                </p>
               </div>
               <div className="space-y-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">Contato</p>
-                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">+55 31 0000-0000</p>
+                <p className="section-kicker text-accent">Contato</p>
+                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">31 8893-5159</p>
               </div>
             </div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-gray-500 text-center md:text-right">
