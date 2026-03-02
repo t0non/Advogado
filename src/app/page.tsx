@@ -322,14 +322,20 @@ export default function Home() {
               <div className="space-y-4">
                 <p className="section-kicker text-accent">Endereço</p>
                 <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">
-                  Rua dos Carijós 424 <br/> 
-                  salas 1504/1508 <br/> 
-                  Centro Belo Horizonte
+                  Rua Carijos, 424, sala 1504/1508 <br/> 
+                  Ed. Joaquim de Paula - Praça Sete <br/> 
+                  Centro - BH/MG - Cep: 30.120.064
                 </p>
               </div>
               <div className="space-y-4">
-                <p className="section-kicker text-accent">Contato</p>
-                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">31 98283-8833</p>
+                <p className="section-kicker text-accent">Contatos</p>
+                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em] mb-2">
+                  (31) 3271-6997 / 3657-6997 <br/>
+                  3564-8414 / 98283-8833
+                </p>
+                <p className="text-white text-[10px] font-medium tracking-[0.1em] lowercase opacity-80">
+                  arodrigues@adv.oabmg.org.br
+                </p>
               </div>
             </div>
           </div>
