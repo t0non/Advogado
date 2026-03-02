@@ -79,7 +79,7 @@ export default function Home() {
               {[
                 { icon: ShieldCheck, text: "Atendimento direto com advogados" },
                 { icon: CheckCircle2, text: "Mais de 30 anos de experiência" },
-                { icon: Zap, text: "Mais de 2.000 clientes atendidos" }
+                { icon: Zap, text: "Mais de 3.000 clientes atendidos" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-center lg:justify-start gap-3 text-black text-[10px] font-bold uppercase tracking-widest">
                   <item.icon className="h-4 w-4 text-accent shrink-0" />
@@ -213,7 +213,7 @@ export default function Home() {
                     label: "Resultado", 
                     val: (
                       <>
-                        Já ajudamos <span className="bg-[#8C6D4A] text-white px-1 rounded">mais de 2.000 pessoas</span> a recuperar o dinheiro delas
+                        Já ajudamos <span className="bg-[#8C6D4A] text-white px-1 rounded">mais de 3.000 pessoas</span> a recuperar o dinheiro delas
                       </>
                     ) 
                   },
