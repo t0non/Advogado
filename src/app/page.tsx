@@ -111,7 +111,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="section-title text-black">
               Trabalhou a vida toda e o INSS negou? <br/> 
-              <span className="inline-block bg-[#8C6D4A] text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-[12px]">
+              <span className="inline-block bg-accent text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-[12px]">
                 Isso não tá certo!
               </span>
             </h2>
@@ -205,7 +205,7 @@ export default function Home() {
                     label: "Experiência", 
                     val: (
                       <>
-                        Sabemos como o INSS funciona e os <span className="bg-[#8C6D4A] text-white px-1 rounded">atalhos para vencer</span>
+                        Sabemos como o INSS funciona e os <span className="bg-accent text-white px-1 rounded">atalhos para vencer</span>
                       </>
                     ) 
                   },
@@ -213,7 +213,7 @@ export default function Home() {
                     label: "Resultado", 
                     val: (
                       <>
-                        Já ajudamos <span className="bg-[#8C6D4A] text-white px-1 rounded">mais de 3.000 pessoas</span> a recuperar o dinheiro delas
+                        Já ajudamos <span className="bg-accent text-white px-1 rounded">mais de 3.000 pessoas</span> a recuperar o dinheiro delas
                       </>
                     ) 
                   },
@@ -221,7 +221,7 @@ export default function Home() {
                     label: "Atenção", 
                     val: (
                       <>
-                        Aqui você fala com <span className="bg-[#8C6D4A] text-white px-1 rounded">gente de verdade</span> no WhatsApp, não com robôs
+                        Aqui você fala com <span className="bg-accent text-white px-1 rounded">gente de verdade</span> no WhatsApp, não com robôs
                       </>
                     ) 
                   }

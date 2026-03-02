@@ -16,16 +16,16 @@
     --secondary-foreground: 0 0% 10%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: 25 25% 45%; /* Bronze Minimalista */
+    --accent: 354 57% 20%; /* Bordô do Header (#4f151c) */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 25 25% 45%;
+    --ring: 354 57% 20%;
     --radius: 0.5rem;
     --brand-green: #25D366;
-    --gold: #A67C52;
+    --gold: #A67C52; /* Mantido para detalhes em marrom/dourado */
     --dark: #111111;
     --offwhite: #F9F9F9;
     --space-section-y: 4rem;
