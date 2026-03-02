@@ -112,7 +112,7 @@ export default function Home() {
             <h2 className="section-title text-black">
               Trabalhou a vida toda e o INSS negou? <br/> 
               <span className="inline-block bg-accent text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-[12px]">
-                Isso não tá certo!
+                Isto não está correto!
               </span>
             </h2>
             <p className="section-paragraph text-gray-600 max-w-3xl mx-auto">
@@ -289,7 +289,7 @@ export default function Home() {
       {/* Seção de Mapa */}
       <section className="py-12 md:py-16 bg-offwhite page-margins">
         <div className="w-full text-center space-y-8">
-          <h2 className="section-title text-black">Onde a gente fica</h2>
+          <h2 className="section-title text-black">Nossa Localização</h2>
           <p className="section-paragraph text-gray-600 max-w-2xl mx-auto">
             Se preferir, venha tomar um café com a gente. É fácil de chegar.
           </p>
