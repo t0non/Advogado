@@ -29,13 +29,13 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === "hero-legal");
   // Mensagem codificada: "Olá, gostaria de agendar uma consulta sobre meu caso do INSS."
-  const whatsappUrl = "https://wa.me/5531988935159?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20sobre%20meu%20caso%20do%20INSS.";
+  const whatsappUrl = "https://wa.me/5531982838833?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20sobre%20meu%20caso%20do%20INSS.";
 
   return (
     <div className="flex flex-col min-h-screen selection:bg-[#25D366] selection:text-white bg-white font-body">
       {/* Hero Section */}
       <section className="relative flex items-center overflow-hidden page-margins bg-white pt-24 md:pt-28 lg:pt-0 lg:min-h-screen">
-        <div className="absolute inset-x-0 top-0 h-20 md:h-24 bg-[#4f151c] z-0 pointer-events-none flex items-center justify-center shadow-lg">
+        <div className="absolute inset-x-0 top-0 h-20 md:h-24 bg-accent z-0 pointer-events-none flex items-center justify-center shadow-lg">
           <div className="relative z-50 flex items-center justify-center pointer-events-none w-full h-full">
             <Image src={logoDef} alt="Rodrigues Advocacia" className="w-40 md:w-52 h-auto object-contain" priority />
           </div>
@@ -329,12 +329,8 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <p className="section-kicker text-accent">Contato</p>
-                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">31 8893-5159</p>
+                <p className="text-white text-[12px] font-medium uppercase tracking-[0.2em]">31 98283-8833</p>
               </div>
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-gray-500 text-center md:text-right">
-              &copy; {new Date().getFullYear()} Rodrigues Advocacia | OAB/MG 00.000 <br className="md:hidden" />
-              <span className="hidden md:inline mx-6">|</span> Todos os direitos reservados.
             </div>
           </div>
         </div>
