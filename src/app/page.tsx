@@ -94,7 +94,7 @@ export default function Home() {
             <div className="relative w-full max-w-xl h-[70vh] lg:max-w-3xl lg:h-[92vh] overflow-visible justify-self-end self-center">
               <Image 
                 src={drAntonioImg}
-                alt="Dra. Daniela & Dr. Antônio Rodrigues"
+                alt="Dra. Daniela & Dr. Antonio Rodrigues"
                 fill
                 className="object-contain object-center"
                 priority
@@ -187,13 +187,13 @@ export default function Home() {
             <div className="relative aspect-[4/5] md:aspect-[4/5] max-w-[400px] md:max-w-[440px] lg:max-w-[460px] mx-auto overflow-hidden group border border-border shadow-xl order-2 md:order-1 rounded-2xl bg-black block w-full">
               <Image 
                 src={drAntonioImg2} 
-                alt="Dra. Daniela & Dr. Antônio Rodrigues" 
+                alt="Dra. Daniela & Dr. Antonio Rodrigues" 
                 fill 
                 className="object-cover object-center scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white rounded-b-2xl">
                 <p className="text-[11px] font-bold tracking-[0.3em] uppercase mb-2 text-accent">Sócios Fundadores</p>
-                <h3 className="text-xl md:text-2xl lg:text-2xl font-bold uppercase text-white">Dr. Antônio & Dra. Daniela</h3>
+                <h3 className="text-xl md:text-2xl lg:text-2xl font-bold uppercase text-white">Dr. Antonio & Dra. Daniela</h3>
               </div>
             </div>
             <div className="space-y-6 md:space-y-6 order-1 md:order-2 md:h-full md:flex md:flex-col md:justify-center">
