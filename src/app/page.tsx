@@ -8,36 +8,57 @@ import {
   Zap,
   ShieldAlert
 } from "lucide-react";
+import { WhatsAppIcon, GoogleIcon } from "@/app/components/Icons";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import drAntonioImg from "@/imagens/foto do profissional.png";
 import senhorCarteira from "@/imagens/senhorsegurandocarteira.png";
 import drAntonioImg2 from "@/imagens/foto do profissional 2.png";
 import logoDef from "@/imagens/Logo definitiva.png";
 import BHClockInline from "@/app/components/BHClockInline";
+import { FAQData } from "@/app/data/FAQData";
+import { VideoData } from "@/app/data/VideoData";
+import { TestimonialData, GlossaryData } from "@/app/data/SEOExtraData";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-const WhatsAppIcon = ({ className }: { className?: string }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    className={className} 
-    fill="currentColor" 
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.431 5.623 1.432h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-  </svg>
-);
+const avatarColors = [
+  "bg-blue-500",
+  "bg-green-500",
+  "bg-purple-500",
+  "bg-orange-500",
+  "bg-pink-500",
+  "bg-teal-500",
+  "bg-indigo-500",
+  "bg-red-500",
+];
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find(img => img.id === "hero-legal");
-  // Mensagem codificada: "Olá, gostaria de agendar uma consulta sobre meu caso do INSS."
   const whatsappUrl = "https://wa.me/5531982838833?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20sobre%20meu%20caso%20do%20INSS.";
 
   return (
     <div className="flex flex-col min-h-screen selection:bg-[#25D366] selection:text-white bg-white font-body">
-      {/* Hero Section */}
-      <section className="relative flex items-center overflow-hidden page-margins bg-white pt-24 md:pt-28 lg:pt-0 lg:min-h-screen">
+      <header className="sr-only">
+        <h1>Rodrigues Advocacia Previdenciária - Especialistas em INSS</h1>
+      </header>
+      
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative flex items-center overflow-hidden page-margins bg-white pt-24 md:pt-28 lg:pt-0 lg:min-h-screen">
         <div className="absolute inset-x-0 top-0 h-20 md:h-24 bg-accent z-0 pointer-events-none flex items-center justify-center shadow-lg">
           <div className="relative z-50 flex items-center justify-center pointer-events-none w-full h-full">
-            <Image src={logoDef} alt="Rodrigues Advocacia" className="w-40 md:w-52 h-auto object-contain" priority />
+            <Image 
+              src={logoDef} 
+              alt="Rodrigues Advocacia" 
+              className="w-40 md:w-52 h-auto object-contain" 
+              priority 
+              sizes="(max-width: 768px) 160px, 208px"
+            />
           </div>
         </div>
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full lg:min-h-screen">
@@ -46,15 +67,15 @@ export default function Home() {
               Advogados especialistas em INSS
             </div>
             <h1 className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight text-black uppercase animate-premium-reveal animate-delay-200 opacity-0 fill-mode-forwards font-headline">
-              O INSS negou seu benefício?
+              Advogado Especialista em INSS BH | Benefício Negado?
             </h1>
             <p className="text-gray-800 mx-auto lg:mx-0 mb-7 font-medium text-base md:text-lg leading-relaxed animate-premium-reveal animate-delay-300 opacity-0 fill-mode-forwards">
               Você pagou o INSS a vida toda e agora que precisa, eles viraram as costas. Não deixe seu dinheiro lá. <span className="font-bold text-black">A gente resolve isso pra você.</span>
             </p>
             
             <div className="flex flex-col gap-5 md:gap-6 items-center lg:items-start animate-premium-reveal animate-delay-500 opacity-0 fill-mode-forwards">
-              <Link href={whatsappUrl} target="_blank">
-                <button className="glass-btn-whatsapp group inline-flex">
+              <Link href={whatsappUrl} target="_blank" aria-label="Falar com advogado no WhatsApp">
+                <button className="glass-btn-whatsapp group inline-flex" aria-hidden="true">
                   <WhatsAppIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-500" />
                   Falar com advogado no WhatsApp
                 </button>
@@ -70,6 +91,7 @@ export default function Home() {
                   fill
                   className="object-contain object-center"
                   priority
+                  sizes="(max-width: 768px) 100vw, 448px"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-b from-transparent to-white pointer-events-none" />
               </div>
@@ -98,6 +120,7 @@ export default function Home() {
                 fill
                 className="object-contain object-center"
                 priority
+                sizes="(min-width: 1024px) 40vw, 50vw"
               />
               <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none" />
             </div>
@@ -110,9 +133,9 @@ export default function Home() {
         <div className="w-full">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="section-title text-black">
-              Trabalhou a vida toda e o INSS negou? <br/> 
+              Como Recuperar seu Benefício Negado no INSS <br/> 
               <span className="inline-block bg-accent text-white px-8 py-4 mt-8 -rotate-1 shadow-2xl font-black rounded-[12px]">
-                Isto não está correto!
+                Te orientamos passo a passo
               </span>
             </h2>
             <p className="section-paragraph text-gray-600 max-w-3xl mx-auto">
@@ -120,8 +143,8 @@ export default function Home() {
                 Não tente brigar sozinho. <span className="font-bold text-black">Nós sabemos o caminho mais rápido para o dinheiro cair na sua conta.</span>
               </p>
             <div className="pt-4">
-              <Link href={whatsappUrl}>
-                <button className="glass-btn-whatsapp group w-full md:w-auto">
+              <Link href={whatsappUrl} aria-label="Quero ajuda agora">
+                <button className="glass-btn-whatsapp group w-full md:w-auto" aria-label="Quero ajuda agora">
                   <WhatsAppIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   Quero ajuda agora
                 </button>
@@ -190,6 +213,7 @@ export default function Home() {
                 alt="Dra. Daniela & Dr. Antonio Rodrigues" 
                 fill 
                 className="object-cover object-center scale-105"
+                sizes="(max-width: 768px) 100vw, 460px"
               />
               <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 lg:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white rounded-b-2xl">
                 <p className="text-[11px] font-bold tracking-[0.3em] uppercase mb-2 text-accent">Sócios Fundadores</p>
@@ -233,6 +257,52 @@ export default function Home() {
                 ))}
               </ul>
               <p className="text-black font-semibold italic text-sm md:text-base lg:text-base md:mt-auto">Seu caso é tratado com a seriedade que merece.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="depoimentos" className="py-24 bg-geo-subtle page-margins">
+        <div className="w-full">
+          <div className="text-center mb-16">
+            <div className="section-kicker">Prova Social</div>
+            <h2 className="section-title">O que nossos clientes dizem</h2>
+          </div>
+          
+          <div className="relative overflow-hidden w-full py-10">
+            {/* Máscaras de Gradiente para suavizar as bordas */}
+            <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-geo-subtle to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-geo-subtle to-transparent z-20 pointer-events-none" />
+            
+            <div className="marquee-content animate-marquee">
+              {/* Duplicamos a lista para o efeito infinito perfeito */}
+              {[...TestimonialData, ...TestimonialData].map((t, i) => (
+                <article key={i} className="card-premium w-[300px] md:w-[400px] mx-4 shrink-0 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="flex gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <span key={i} className="text-[#FFD700] text-lg">★</span>
+                        ))}
+                      </div>
+                      <GoogleIcon className="h-5 w-5" />
+                    </div>
+                    <p className="text-gray-700 italic mb-6">"{t.content}"</p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Avatar className={`h-12 w-12 border-2 border-white shadow-sm`}>
+                      <AvatarFallback className={`${avatarColors[i % avatarColors.length]} text-white font-bold text-lg`}>
+                        {t.name.charAt(0)}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-bold text-black uppercase text-[11px] tracking-widest">{t.name}</p>
+                      <p className="text-accent text-[10px] uppercase font-medium">{t.role}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -286,6 +356,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Library Section */}
+      <section id="biblioteca" className="section-y bg-offwhite page-margins overflow-hidden">
+        <div className="w-full">
+          <div className="text-center mb-16">
+            <div className="section-kicker">Biblioteca de Conhecimento</div>
+            <h2 className="section-title text-black">Entenda Seus Direitos em Minutos</h2>
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              Preparamos uma seleção exclusiva de vídeos para você entender como o INSS funciona e como garantir o seu benefício.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {VideoData.map((video) => (
+              <article key={video.id} className="group relative bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-700 ease-premium">
+                <div className="relative aspect-video overflow-hidden">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src={`https://www.youtube.com/embed/${video.id}`} 
+                    title={video.title}
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                    className="absolute inset-0 grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-black mb-2 group-hover:text-accent transition-colors duration-300">
+                    {video.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                    {video.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link href={whatsappUrl}>
+              <button className="glass-btn-whatsapp group">
+                Quero analisar meu caso específico
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="section-y bg-white page-margins">
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="section-kicker">FAQ</div>
+            <h2 className="section-title">Perguntas Frequentes</h2>
+          </div>
+          <div className="space-y-6">
+            {FAQData.map((item, index) => (
+              <article key={index} className="card-premium">
+                <h3 className="text-lg md:text-xl font-bold text-black mb-3">{item.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Seção de Mapa */}
       <section className="py-12 md:py-16 bg-offwhite page-margins">
         <div className="w-full text-center space-y-8">
@@ -305,11 +442,31 @@ export default function Home() {
             ></iframe>
           </div>
           <div className="pt-4">
-            <Link href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Carij%C3%B3s+424+Centro+Belo+Horizonte" target="_blank">
-              <button className="glass-btn-whatsapp bg-black border-white/20 hover:bg-gray-900 group w-full md:w-auto">
+            <Link href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Carij%C3%B3s+424+Centro+Belo+Horizonte" target="_blank" aria-label="Ver localização no Google Maps">
+              <button className="glass-btn-whatsapp bg-black border-white/20 hover:bg-gray-900 group w-full md:w-auto" aria-hidden="true">
                 Ver como chegar
               </button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      </main>
+
+      <section id="glossario" className="py-24 bg-white page-margins">
+        <div className="w-full max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="section-kicker">Conhecimento Técnico</div>
+            <h2 className="section-title">Glossário Previdenciário</h2>
+            <p className="text-sm text-gray-500 mt-2">Termos fundamentais para entender seu processo</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+            {GlossaryData.map((g, i) => (
+              <div key={i} className="border-l-4 border-accent pl-6 py-2">
+                <h3 className="font-bold text-black uppercase text-sm tracking-widest mb-2">{g.term}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{g.definition}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
