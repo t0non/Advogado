@@ -6,6 +6,7 @@ import { FAQData } from './data/FAQData';
 import { VideoData } from './data/VideoData';
 import { TestimonialData } from './data/SEOExtraData';
 import FloatingActions from './components/FloatingActions';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
@@ -199,6 +200,7 @@ export default function RootLayout({
         {children}
         <FloatingActions />
       </body>
+      <GoogleTagManager gtmId="GTM-WK4MHDZH" />
     </html>
   );
 }
