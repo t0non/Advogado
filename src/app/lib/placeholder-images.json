@@ -1,0 +1,23 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-legal",
+      "description": "Escritório de advocacia clássico e imponente",
+      "imageUrl": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "law office"
+    },
+    {
+      "id": "dr-antonio",
+      "description": "Dr. Antônio Rodrigues - Foto Profissional",
+      "imageUrl": "/imagens/foto do profissional.png",
+      "imageHint": "lawyer photo"
+    },
+    {
+      "id": "legal-documents",
+      "description": "Documentos jurídicos e martelo da justiça",
+      "imageUrl": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "justice gavel"
+    }
+  ]
+}

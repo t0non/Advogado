@@ -1,0 +1,16 @@
+{
+  "name": "Rodrigues Advocacia Previdenciária",
+  "short_name": "Rodrigues Adv",
+  "description": "Especialistas em benefícios negados pelo INSS e aposentadorias em Belo Horizonte.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d64243",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
