@@ -6,7 +6,7 @@ import { Phone } from "lucide-react";
 import { WhatsAppIcon } from "./Icons";
 
 export default function FloatingActions() {
-  const whatsappUrl = "https://wa.me/5531982838833?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20sobre%20meu%20caso%20do%20INSS.";
+  const whatsappUrl = "https://wa.me/5531988935159?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20sobre%20meu%20caso%20do%20INSS.";
   const phoneUrl = "tel:3132716997";
 
   return (

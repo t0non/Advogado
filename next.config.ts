@@ -8,9 +8,11 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  output: 'export',
+  trailingSlash: true,
   images: {
-    // Qualidades permitidas para next/image (evita warnings futuros na v16)
-    qualities: [75, 90],
+    // Para deploy estático, precisamos desabilitar otimização de imagens
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -38,6 +40,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Configuração para base path caso precise
+  // basePath: '/pasta-do-site',
+  
+  // Configurações para CSS estático
+  experimental: {
+    // cssChunking: false,
+  },
+  
+  // Garantir que o CSS seja incluído no HTML
+  generateEtags: false,
+  
+  // Configuração para build estático
+  distDir: 'out',
 };
 
 export default nextConfig;

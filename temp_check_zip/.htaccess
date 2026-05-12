@@ -1,0 +1,20 @@
+# Configuração robusta para HostGator (Next.js Static)
+Options -MultiViews
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteBase /
+
+# Garante que o Apache não bloqueie acesso a arquivos estáticos
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|json)$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+</FilesMatch>
+
+# Se o arquivo ou pasta existe, carrega normalmente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redireciona tudo para o index.html (mantém o roteamento do Next.js)
+RewriteRule ^ index.html [L]

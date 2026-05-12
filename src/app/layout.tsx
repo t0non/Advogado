@@ -15,12 +15,12 @@ const instrumentSans = Instrument_Sans({
   variable: '--font-instrument-sans',
 });
 
-import drAntonioImg from '@/imagens/foto do profissional.png';
-import logoDef from '@/imagens/Logo definitiva.png';
+import drAntonioImg from '@/imagens/foto do profissional.webp';
+import logoDef from '@/imagens/Logo definitiva.webp';
 
 export const metadata: Metadata = {
   title: 'Advogado INSS em BH | Rodrigues Advocacia Previdenciária',
-  description: 'O INSS negou seu benefício? Especialistas em aposentadoria, auxílio-doença e revisões com mais de 30 anos de experiência em Belo Horizonte. Fale agora conosco.',
+  description: 'Teve o benefício negado? Auxílio-doença cortado? Aposentadoria atrasada? Fale com advogados especialistas em INSS em Belo Horizonte e recupere seu direito.',
   keywords: ['Advogado INSS BH', 'Benefício Negado INSS', 'Aposentadoria Passo a Passo', 'Advocacia Previdenciária BH', 'Recurso de Auxílio Doença'],
   authors: [{ name: 'Antonio Rodrigues & Daniela Cravo' }],
   metadataBase: new URL('https://antoniorodriguesadv.com.br'),
@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     description: 'Especialistas em INSS em BH',
     images: ['/_next/static/media/foto do profissional.png'],
   },
+  verification: {
+    google: 'hNxhA5dW8Awd3AUlDud8GjoLlBkkz_jnLCrneUPlQ7E',
+  },
 };
 
 export default function RootLayout({
@@ -72,12 +75,14 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "Rodrigues Advocacia | Advocacia Previdenciária",
-    "description": "Especialistas em benefícios negados pelo INSS e revisões de aposentadoria com mais de 30 anos de experiência em Belo Horizonte.",
+    "serviceType": "Advocacia Previdenciária",
+    "description": "Especialistas em benefícios negados pelo INSS, recursos e revisões em Belo Horizonte. Mais de 30 anos de experiência.",
     "url": "https://antoniorodriguesadv.com.br",
     "telephone": "+55-31-3271-6997",
+    "image": "https://antoniorodriguesadv.com.br/site_data/static/media/Logo definitiva.bbb5e09d.webp",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rua Carijós, 424, sala 1504/1508",
+      "streetAddress": "Rua Carijós, 424, sala 1504/1508 - Praça Sete",
       "addressLocality": "Belo Horizonte",
       "addressRegion": "MG",
       "postalCode": "30120-064",
@@ -88,6 +93,24 @@ export default function RootLayout({
       "latitude": -19.918124,
       "longitude": -43.941657
     },
+    "areaServed": {
+      "@type": "City",
+      "name": "Belo Horizonte"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-31-98893-5159",
+      "contactType": "WhatsApp Business",
+      "availableLanguage": "Portuguese"
+    },
+    "knowsAbout": [
+      "Benefício Negado INSS",
+      "Auxílio-Doença Cortado",
+      "Aposentadoria por Invalidez",
+      "BPC/LOAS",
+      "Revisão da Vida Toda",
+      "Planejamento Previdenciário"
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -195,12 +218,21 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           />
         ))}
+        <meta name="google-site-verification" content="hNxhA5dW8Awd3AUlDud8GjoLlBkkz_jnLCrneUPlQ7E" />
       </head>
       <body className="font-body antialiased">
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5377PFDH"
+            height="0" 
+            width="0" 
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         {children}
         <FloatingActions />
       </body>
-      <GoogleTagManager gtmId="GTM-WK4MHDZH" />
+      <GoogleTagManager gtmId="GTM-5377PFDH" />
     </html>
   );
 }
